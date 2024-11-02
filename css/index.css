@@ -1,0 +1,242 @@
+/* General Body Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F7F9FC;
+    color: #333;
+}
+
+/* Header Style */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #283048, #859398);
+    color: #fff;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+header img {
+    width: 110px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    cursor: default;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    vertical-align: top;
+}
+
+nav a::before,
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+nav a::before {
+    background-color: #ffe66d;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+nav a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #ffe66d;
+}
+
+nav a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+nav a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+nav a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+nav a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
+main {
+    background-color: #f7f9fc;
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+/* Categories Style */
+.categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Style for category images and names */
+.category-image {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.category-name {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0.5em;
+    color: #333;
+}
+
+/* Dropdown menu Style */
+.dropdown {
+    width: 130px;
+    height: 145px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 2rem 2rem;
+    padding: 1rem;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+.dropdown:hover .category-image {
+    transform: scale(1.05);
+    /* Scale image on hover */
+}
+
+.dropbtn {
+    background-color: #28a745;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3), 0px 0px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-content {
+    position: absolute;
+    padding-right: 0.5em;
+    z-index: -1;
+    left: -1px;
+    top: 70%;
+    width: 157px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.7);
+    transition: top 0.5s ease-out, z-index 0.2s ease-out;
+}
+
+.dropdown:hover .dropdown-content {
+    z-index: 1;
+    top: 180px;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 8px 16px;
+}
+
+.dropdown-content ul li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+ul li a:hover {
+    color: #3ca0e7;
+}
+
+
+ul li {
+    text-align: left;
+    border-style: none;
+}
+
+.dropdown-content ul li a:hover {
+    padding-left: 10px;
+    border-left: 2px solid #3ca0e7;
+    transition: all 0.3s ease;
+}
+
+
+ul li a {
+    transition: all 0.5s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #218838;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.35), 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for small screens */
+@media (max-width: 600px) {
+    header {
+        padding: 0 0.5rem;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    header img {
+        width: 95px;
+    }
+
+    .dropdown {
+        width: 92px;
+        height: 135px;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin: 1rem 0rem;
+    }
+}
